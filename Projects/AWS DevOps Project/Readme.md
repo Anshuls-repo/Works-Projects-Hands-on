@@ -108,31 +108,21 @@ hooks:
 
 ```
 
-**The given appspec.yml file provides configuration for the deployment process using AWS CodeDeploy. Here's a brief explanation of the contents:**
+**The given appspec.yml file provides configuration for the deployment process using AWS CodeDeploy. 
+Here's a brief explanation of the contents:**
 
-**version: 0.0: Specifies the version of the AppSpec file format.**
-
-**os: linux: Specifies the operating system where the deployment will take place. files: Defines the files to be deployed.**
-
-- **source: /: Specifies the source directory or files to be deployed. In this case, it represents the root directory of the application.**
-
-**destination: /var/www/html: Specifies the destination directory on the target instance where the files will be deployed. In this case, it points to the /var/www/html directory.**
-
-**hooks: Defines the lifecycle event hooks, which are actions to be executed at specific stages of the deployment.**
-
-**AfterInstall: Specifies the hook to be executed after the application files are installed.**
-
-- **location: scripts/install\_nginx.sh: Specifies the location of the script to be executed. In this case, it points to install\_nginx.sh within the scripts directory.**
-
-**timeout: 300: Sets the timeout duration for the script execution to 300 seconds (5 minutes).**
-
-**runas: root: Specifies that the script should be executed as the root user. ApplicationStart: Specifies the hook to be executed after the application is started.**
-
-- **location: scripts/start\_nginx.sh: Specifies the location of the script to be executed. In this case, it points to start\_nginx.sh within the scripts directory.**
-
-**timeout: 300: Sets the timeout duration for the script execution to 300 seconds (5 minutes).**
-
-**runas: root: Specifies that the script should be executed as the root user.**
+- version: 0.0: Specifies the version of the AppSpec file format.
+- os: linux: Specifies the operating system where the deployment will take place. files: Defines the files to be deployed.
+- source: /: Specifies the source directory or files to be deployed. In this case, it represents the root directory of the application.
+- destination: /var/www/html: Specifies the destination directory on the target instance where the files will be deployed. In this case, it points to the /var/www/html directory.
+- hooks: Defines the lifecycle event hooks, which are actions to be executed at specific stages of the deployment.
+- AfterInstall: Specifies the hook to be executed after the application files are installed.
+- location: scripts/install\_nginx.sh: Specifies the location of the script to be executed. In this case, it points to install\_nginx.sh within the scripts directory.
+- timeout: 300: Sets the timeout duration for the script execution to 300 seconds (5 minutes).
+- runas: root: Specifies that the script should be executed as the root user. ApplicationStart: Specifies the hook to be executed after the application is started.
+- location: scripts/start\_nginx.sh: Specifies the location of the script to be executed. In this case, it points to start\_nginx.sh within the scripts directory.
+- timeout: 300: Sets the timeout duration for the script execution to 300 seconds (5 minutes).
+- runas: root: Specifies that the script should be executed as the root user.
 
 **In summary, this appspec.yml file defines the deployment process for an application on a Linux operating system. It includes the files from the root directory of the application and deploys them to the /var/www/html directory. It also specifies the execution of two scripts, install\_nginx.sh and start\_nginx.sh, after the installation and application start stages, respectively. The scripts are executed as the root user with a timeout of 300 seconds for each.**
 
