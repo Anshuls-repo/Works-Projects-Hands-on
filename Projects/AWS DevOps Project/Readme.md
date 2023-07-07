@@ -15,6 +15,7 @@ You are assigned to create a software development life cycle for an application 
    1. There should be two stages in deployment, the QA stage and the Production stage
    1. Only when the QA stage is successful, the Production stage should execute.
 1. Create a third stage where the same website is pushed into an Elastic Beanstalk environment
+   [](https://github.com/Anshuls-repo/Works-Projects-Hands-on/tree/main/Projects/AWS%20DevOps%20Project)
 
 Finally: [Output](https://github.com/Anshuls-repo/Works-Projects-Hands-on/tree/main/Projects/AWS%20DevOps%20Project#output)
 
