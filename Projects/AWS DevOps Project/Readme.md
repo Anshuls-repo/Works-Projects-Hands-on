@@ -1,4 +1,4 @@
-﻿**AWS DevOps Project![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.001.png)**
+# AWS SDLC
 
 **Problem Statement:**
 
@@ -16,127 +16,104 @@ You are assigned to create a software development life cycle for an application 
    1. Only when the QA stage is successful, the Production stage should execute.
 1. Create a third stage where the same website is pushed into an Elastic Beanstalk environment
 
+# Let Us Start
+
 **According to the given project, the first thing we will need is an HTML website in the github repo.**
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.002.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-000.png)
 
 **GitHub Repo all files we will use, breakdown:**
 
 **Index.html:**
 
-**<!DOCTYPE html>**
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: #333;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-top: 50px;
+        color: #6130e8;
+      }
+      
+      p {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AWS Devops</h1>
+    <p>Project</p>
+  </body>
+</html>
 
-**<html>**
-
-**<head>**
-
-**<style>**
-
-**body {**
-
-**font-family: Arial, sans-serif; background-color: #f2f2f2; color: #333;**
-
-**text-align: center;**
-
-**}**
-
-**h1 {**
-
-**font-size: 36px; margin-top: 50px; color: #6130e8;**
-
-**}**
-
-**p {**
-
-**font-size: 18px; margin: 20px 0;**
-
-**}**
-
-**</style>**
-
-**</head>**
-
-**<body>**
-
-**<h1>AWS Devops</h1>**
-
-**<p>Project</p> </body>**
-
-**</html>**
-
+```
 **Index.html explained:**
 
-**The given HTML code represents a simple webpage with a title "AWS DevOps" and a paragraph "Project". Here's a brief explanation of the code:**
+The given HTML code represents a simple webpage with a title "AWS DevOps" and a paragraph "Project". Here's a brief explanation of the code:
 
-**The <!DOCTYPE html> declaration specifies the HTML version used in the document. The <html> element is the root element of an HTML page.**
-
-**The <head> element contains meta-information about the HTML document, such as styles, scripts, and title.**
-
-**Inside the <head> element, there is a <style> block that defines the CSS styles for the webpage.**
-
-**The body element represents the content of the webpage and contains the visible elements.**
-
-**The <h1> element represents a heading with the text "AWS DevOps". It has a larger font size, a margin-top of 50 pixels, and a specific color (#6130e8).**
-
-**The <p> element represents a paragraph with the text "Project". It has a font size of 18 pixels and a margin of 20 pixels on the top and bottom.**
-
-**The CSS styles specified in the <style> block define the appearance of the webpage, including the font family, background color, text color, and text alignment.**
-
-**In summary, the HTML code creates a webpage with a heading and a paragraph, styled using CSS to have a specific appearance.**
+- The "!DOCTYPE html" declaration specifies the HTML version used in the document. The "html" element is the root element of an HTML page.
+- The "head" element contains meta-information about the HTML document, such as styles, scripts, and title.
+Inside the "head" element, there is a "style" block that defines the CSS styles for the webpage.
+- The body element represents the content of the webpage and contains the visible elements.
+The "h1" element represents a heading with the text "AWS DevOps". It has a larger font size, a margin-top of 50 pixels, and a specific color (#6130e8).
+- The "p" element represents a paragraph with the text "Project". It has a font size of 18 pixels and a margin of 20 pixels on the top and bottom.
+- The CSS styles specified in the "style" block define the appearance of the webpage, including the font family, background color, text color, and text alignment.
+- In summary, the HTML code creates a webpage with a heading and a paragraph, styled using CSS to have a specific appearance.
 
 **buildspec.yml:**
+The given buildspec.yml file is used in the AWS CodeBuild service to define the build specifications and actions for a project. Here's a brief explanation of the contents:
 
-**The given buildspec.yml file is used in the AWS CodeBuild service to define the build specifications and actions for a project. Here's a brief explanation of the contents:**
+**version: 0.2**: Specifies the version of the buildspec file format.
+**phases**: Represents different phases of the build process, such as installation, build, and post-build actions.
+**install**: Contains commands to be executed during the installation phase.
+**echo Installing NGINX**: Prints a message indicating that NGINX installation is starting. sudo apt-get update: Updates the package lists on the system.
 
-**version: 0.2: Specifies the version of the buildspec file format.**
+**sudo apt-get install nginx -y**: Installs NGINX by using the package manager with automatic confirmation (-y).
 
-**phases: Represents different phases of the build process, such as installation, build, and post-build actions.**
+**build**: Contains commands to be executed during the build phase.
 
-**install: Contains commands to be executed during the installation phase.**
+**echo Build started on date``**: Prints a message with the current date and time.
 
-**echo Installing NGINX: Prints a message indicating that NGINX installation is starting. sudo apt-get update: Updates the package lists on the system.**
+**cp index.html /var/www/html/**: Copies the index.html file to the /var/www/html/ directory. post\_build: Contains commands to be executed after the build phase.**
 
-**sudo apt-get install nginx -y: Installs NGINX by using the package manager with automatic confirmation (-y).**
+**echo Configuring NGINX**: Prints a message indicating that NGINX configuration is being performed.
 
-**build: Contains commands to be executed during the build phase.**
+**artifacts**: Specifies the artifacts to be generated and uploaded after the build phase.
 
-**echo Build started on date``: Prints a message with the current date and time.**
+**files**: Defines the files and directories to be included as artifacts.
 
-**cp index.html /var/www/html/: Copies the index.html file to the /var/www/html/ directory. post\_build: Contains commands to be executed after the build phase.**
-
-**echo Configuring NGINX: Prints a message indicating that NGINX configuration is being performed.**
-
-**artifacts: Specifies the artifacts to be generated and uploaded after the build phase.**
-
-**files: Defines the files and directories to be included as artifacts.**
-
-**'\*\*/\*': Includes all files and directories recursively, capturing everything in the build environment as artifacts.**
+**'\*\*/\*'**: Includes all files and directories recursively, capturing everything in the build environment as artifacts.
 
 **In summary, this buildspec.yml file sets up an AWS CodeBuild project to install NGINX, copy an index.html file to the appropriate location, and generate artifacts that include all files and directories in the build environment.**
 
 **appspec.yml:**
+```
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html
+hooks:
+  AfterInstall:
+    - location: scripts/install_nginx.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_nginx.sh
+      timeout: 300
+      runas: root
 
-**version: 0.0**
-
-**os: linux**
-
-**files:**
-
-- **source: /**
-
-**destination: /var/www/html hooks:**
-
-**AfterInstall:**
-
-- **location: scripts/install\_nginx.sh timeout: 300**
-
-**runas: root**
-
-**ApplicationStart:**
-
-- **location: scripts/start\_nginx.sh timeout: 300**
-
-**runas: root**
+```
 
 **The given appspec.yml file provides configuration for the deployment process using AWS CodeDeploy. Here's a brief explanation of the contents:**
 
