@@ -302,55 +302,55 @@ Deployment succeeded.
 
 Similarly create deployment for prod deployment group.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.040.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-038.png)
 
 PROD deployment is also done.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.041.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-039.png)
 
 We can copy public ip and check both the instances deployments.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.042.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-040.png)
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.043.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-041.png)
 
 Now, we need to create a pipeline. Create pipeline:
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.044.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-042.png)
 
 Give it a name and let the role be default one and next.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.045.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-043.png)
 
 Our source provider is codecommit so select it.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.046.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-044.png)
 
 Our build provider is codebuild. Select the build that we created.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.047.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-045.png)
 
 Our deploy provider is codedeploy. Select QA for now. We will add Prod in pipeline later.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.048.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-046.png)
 
 Create pipeline.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.049.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-047.png)
 
 Current pipeline is working fine.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.050.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-048.png)
 
 What we want is after QA is successful PROD should get triggered. Also if PROD is successful Beanstalk should update the code.
 
 Let us create BeanStalk environment first.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.051.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-049.png)
 
 Give name to your application. Select php as platform.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.052.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-050.png)
 
 Click on next.
 
