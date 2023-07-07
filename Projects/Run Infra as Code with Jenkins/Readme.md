@@ -90,32 +90,33 @@ In ‘Cloud Formation recipe file/S3 URL. (.json)’ section give your json file
 Here you need to enter Access Key and Secret Key.
 The need for these keys for Jenkins is to call Cloudformation API. Let us head towards AWS to get Access Key and Secret Key.
 Goto IAM>>Users>>Add user from AWS Console.
-Name the user.
 ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-023.png)
+Name the user.
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-024.png)
 Now, attach a policy to the user.
 You need to attach ‘CloudFormation FullAccess’ and ‘S3 bucket FullAccess’ policies to it.
-![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-024.png)
-Check the policies attached and Create User.
 ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-025.png)
-Open the user that you just created and create an Access Key.
+Check the policies attached and Create User.
 ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-027.png)
+Open the user that you just created and create an Access Key.
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-028.png)
 Copy the Access Key and Secret Key.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.021.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-030.png)
 And paste the Access Key and Secret Access Key here.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.022.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-031.png)
 Now save the project. Then select ‘Build Now’ to build the project.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.023.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-032.png)
 You can see logs and the project has been built.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.024.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-034.png)
 Also in AWS console CloudFormation>>Stack you can see the Stack has been created.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.025.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-035.png)
 
 ## Part:2
 
 Now, we need to install AWS CLI. We can do it in multiple ways like SSH into instance and install or we can also use AWS SSM Session Manager to install without keys. We will be just SSHing into it and then download using commands.
 
 First SSH into it. Then update using: sudo apt-get update.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.026.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-037.png)
 
 Then install awscli using: sudo apt-get install awscli
 
@@ -156,32 +157,32 @@ Here's what the different parts of the pipeline script do:
 Unlike the previous part, here we will use IAM Role.
 Let us create and attach an IAM role to EC2 with full S3 and CloudFormation Access. Select the EC2 instance and go to:
 Actions Drop Down Menu>>Security>>Modify IAM Role
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.027.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-039.png)
 
 Create an IAM ROle with following policies attached.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.028.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-041.png)
 
 Attach that IAM role to EC2 instance
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.029.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-042.png)
 
 Now let us create a Jenkins Pipeline Job.
 First name your job and choose pipeline as type of job.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.030.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-044.png)
 
 Straight away go to change ‘Pipeline Configuration’. Here choose ‘pipeline script from SCM’. Then choose GIT. Fill the details accordingly. We will be using this repo with Jenkins file and CloudFormation File.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.031.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-045.png)
 
 Details has been filled according to the resources in GIT.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.032.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-047.png)
 
 Then choose “Build now’ to build the job.
 
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.033.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-048.png)
 In logs you can see the job has been built successfully. AlsoThe command in ‘CLI-Jenkins’ file is being executed.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.034.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-050.png)
 
 The s3 Bucket has been created which was our end goal.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.035.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-051.png)
 
 ## Conclusion: 
 **You can deploy any infrastructure by just changing the Code in “infraasacodewith jenkins.json” with respective code for the infrastructure that you want in github. The pipeline will do the job for you.**
