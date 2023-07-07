@@ -131,69 +131,69 @@ For this first create a codecommit repo in aws through console. Search for codec
 
 Click on create repository.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.003.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-001.png)
 
 JUst name it and click on create repo.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.004.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-002.png)
 
 Now we want to clone github repo to codecommitt.
 For this, create a IAM user. Goto: IAM>User>Create User.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.005.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-003.png)
 
 Just give a name to the user and give codecommit full access to it.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.006.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-004.png)
 
 Now generate an IAM access key by going into: IAM>Users>User we created>security credentials>create access key
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.007.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-005.png)
 
 GIT credentials required are created.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.008.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-006.png)
 
 Now in your local machine install git and clone the github repo to it. For this use commands:
 Sudo apt-get install git
 Git clone <github repo clone link>
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.009.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-007.png)
 
 Copy all the contents of this repo into another folder.
 Use command:
 cp -r /home/ubuntu/github cloned folder name/\*\* /home/ubuntu/<new folder name>
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.010.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-008.png)
 
 Now push this new folder to codecommit repo. USe this command in that folder. Git init
 Git add .
 Git commit -m “message.”
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.011.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-009.png)
 
 Now let us push it to code commit.
 Use command: git remote add origin <codecommit repo link> Git push -u origin master
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.012.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-010.png)
 
 In credentials part, we will enter the credentials we created using IAM user before.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.013.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-011.png)
 
 Changes has been reflected in our codecommit repo.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.014.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-012.png)
 
 Now let us create 2 deployments, QA and Prod in EC2 deployment groups. 
 Goto AWS CodeDeploy>Create Application from AWS console.
 Give name to ur app and choose ec2/on prem as your compute platform.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.015.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-013.png)
 
 Now create 2 instances for QA and Prod. Also we will attach role to it so that it can access codecommit.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.016.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-014.png)
 
 Now we need to install CodeDeploy Agent into them. Use these commands:
 
