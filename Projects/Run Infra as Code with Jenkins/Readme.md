@@ -9,13 +9,13 @@
 ## Part:1
 
 Search for ‘Jenkins’ in AWS Marketplace products. Choose an AMi according to the OS you want. I chose one with Ubuntu in it.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.002.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-001.png)
 
 Now quickly choose the required settings and instance configuration that you need and launch it. We chose t2.micro as it is free.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.003.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-003.png)
 
 Our EC2 instance has started to spin up. Rename it to avoid confusion.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.004.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-004.png)
 
 SSH into this instance. To get password to login into jenkins: cat /var/lib/jenkins/secrets/initialAdminPassword
 ![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.005.jpeg)
