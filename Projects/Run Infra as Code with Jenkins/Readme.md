@@ -62,15 +62,11 @@ For this we have created a file in json format. Let us look into it first.
 
 Here's what the different parts of the template do:
 
-"AWSTemplateFormatVersion": This specifies the version of the CloudFormation template format being used. In this case, it's the 2010-09-09 version.
-
-"Resources": This section contains a list of resources that will be created when the CloudFormation stack is deployed. In this template, there is only one resource, an S3 bucket.
-
-"S3 Bucket": This is the logical ID of the S3 bucket resource. The "Type" attribute specifies the type of AWS resource to create, in this case, an S3 bucket.
-
-"Outputs": This section contains a list of output values that can be retrieved from the CloudFormation stack after it has been created.
-
-"BucketName": This is the logical ID of the output value. The "Value" attribute is set to the "Ref" function, which retrieves the value of the S3 bucket's logical ID. This means that the output will contain the name of the S3 bucket that was created by this CloudFormation stack. The "Description" attribute provides a description of the output value.
+- "AWSTemplateFormatVersion": This specifies the version of the CloudFormation template format being used. In this case, it's the 2010-09-09 version.
+- "Resources": This section contains a list of resources that will be created when the CloudFormation stack is deployed. In this template, there is only one resource, an S3 bucket.
+- "S3 Bucket": This is the logical ID of the S3 bucket resource. The "Type" attribute specifies the type of AWS resource to create, in this case, an S3 bucket.
+- "Outputs": This section contains a list of output values that can be retrieved from the CloudFormation stack after it has been created.
+- "BucketName": This is the logical ID of the output value. The "Value" attribute is set to the "Ref" function, which retrieves the value of the S3 bucket's logical ID. This means that the output will contain the name of the S3 bucket that was created by this CloudFormation stack. The "Description" attribute provides a description of the output value.
 
 **Overall, this CloudFormation template creates an S3 bucket resource and outputs the name of the bucket. When the CloudFormation stack is created from this template, the S3 bucket will be provisioned and the bucket name will be available as an output value.**
 
