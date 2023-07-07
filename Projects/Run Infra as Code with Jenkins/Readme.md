@@ -3,8 +3,8 @@
 
 ## Let us distribute this process into two parts.
 
-- Part-1: We are going to install Jenkins on EC2 with one click. Then we are going to install plugins in Jenkins. Finally we will run a cloudformation from github in Jenkins.
-- [Part-2](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Readme.md#part2) : We are going to install AWS CLI into jenkins, then learn about Jenkinsfile and then create a pipeline to deploy cloudformation from GIT.
+- **Part-1**: We are going to install Jenkins on EC2 with one click. Then we are going to install plugins in Jenkins. Finally we will run a cloudformation from github in Jenkins.
+- **[Part-2]**(https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Readme.md#part2) : We are going to install AWS CLI into jenkins, then learn about Jenkinsfile and then create a pipeline to deploy cloudformation from GIT.
 
 ## Part:1
 
