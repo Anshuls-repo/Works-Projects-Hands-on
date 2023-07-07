@@ -267,160 +267,158 @@ Let us package it in .zip
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.031.jpeg)
 
-**Now start build after setting up artifacts.**
-
-**You can see that after successful build .zip file will reflect in s3.**
+Now start build after setting up artifacts.
+You can see that after successful build .zip file will reflect in s3.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.032.jpeg)
 
-**Now we have created CodeDEPLOY Application before. Create 2 codedeploy groups in it. Here we choose QA tags**
+Now we have created CodeDEPLOY Application before. Create 2 codedeploy groups in it. Here we choose QA tags
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.033.jpeg)
 
-**Select never because we already installed agents before.**
+Select never because we already installed agents before.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.034.jpeg)
 
-**Similarly, while creating deployment group for prod select prod instance tags.**
+Similarly, while creating deployment group for prod select prod instance tags.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.035.jpeg)
 
-**Let us create deployment for QA group first.**
+Let us create deployment for QA group first.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.036.jpeg)
 
-**In Deployment settings add artifacts s3 url and file type.**
+In Deployment settings add artifacts s3 url and file type.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.037.jpeg)
 
-**Create Deployment**
+Create Deployment
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.038.jpeg)
 
-**Deployment succeeded.**
+Deployment succeeded.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.039.jpeg)
 
-**Similarly create deployment for prod deployment group.**
+Similarly create deployment for prod deployment group.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.040.jpeg)
 
-**PROD deployment is also done.**
+PROD deployment is also done.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.041.jpeg)
 
-**We can copy public ip and check both the instances deployments.**
+We can copy public ip and check both the instances deployments.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.042.png)
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.043.png)
 
-**Now, we need to create a pipeline. Create pipeline:**
+Now, we need to create a pipeline. Create pipeline:
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.044.jpeg)
 
-**Give it a name and let the role be default one and next.**
+Give it a name and let the role be default one and next.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.045.jpeg)
 
-**Our source provider is codecommit so select it.**
+Our source provider is codecommit so select it.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.046.jpeg)
 
-**Our build provider is codebuild. Select the build that we created.**
+Our build provider is codebuild. Select the build that we created.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.047.jpeg)
 
-**Our deploy provider is codedeploy. Select QA for now. We will add Prod in pipeline later.**
+Our deploy provider is codedeploy. Select QA for now. We will add Prod in pipeline later.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.048.jpeg)
 
-**Create pipeline.**
+Create pipeline.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.049.jpeg)
 
-**Current pipeline is working fine.**
+Current pipeline is working fine.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.050.jpeg)
 
-**What we want is after QA is successful PROD should get triggered. Also if PROD is successful Beanstalk should update the code.**
+What we want is after QA is successful PROD should get triggered. Also if PROD is successful Beanstalk should update the code.
 
-**Let us create BeanStalk environment first.**
+Let us create BeanStalk environment first.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.051.jpeg)
 
-**Give name to your application. Select php as platform.**
+Give name to your application. Select php as platform.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.052.jpeg)
 
-**Click on next.**
+Click on next.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.053.jpeg)
 
-**Give necessary permission through role and select instance details.**
+Give necessary permission through role and select instance details.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.054.jpeg)
 
-**Choose VPC and AZ in which you want the instance.**
+Choose VPC and AZ in which you want the instance.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.055.jpeg)
 
-**Select storage type and other specs needed according to you.**
+Select storage type and other specs needed according to you.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.056.jpeg)
 
-**Recheck all settings and submit.**
+Recheck all settings and submit.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.057.jpeg)
 
-**Environment is fully launched.**
+Environment is fully launched.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.058.jpeg)
 
-**Now Goto pipeline.**
+Now Goto pipeline.
 
-**After codedeploy stage click on add stage. Give it a name.**
+After codedeploy stage click on add stage. Give it a name.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.059.png)
 
-**Add prod codedeploy.**
+Add prod codedeploy.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.060.jpeg)
 
-**Now add AWS BeanStalk ENV Choose appropriate beanstalk env.**
+Now add AWS BeanStalk ENV Choose appropriate beanstalk env.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.061.jpeg)
 
-**Click on save.**
+Click on save.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.062.png)
 
-**Let us make change in CodeCommit. Add extra line to it. Before change:**
+Let us make change in CodeCommit. Add extra line to it. Before change:
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.063.jpeg)
 
-**After change:**
+After change:
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.064.jpeg)
 
-**Commit it and lets see if it gets reflected in QA, PROD and Beanstalk ENV instance through pipeline.**
-
-**Commit done.**
+Commit it and lets see if it gets reflected in QA, PROD and Beanstalk ENV instance through pipeline.
+Commit done.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.065.jpeg)
 
-**Pipeline is successful.**
+Pipeline is successful.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.066.jpeg)
 
-**Let us check all ip’s of all three instances. QA**
+Let us check all ip’s of all three instances. QA
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.067.png)
 
-**PROD**
+PROD
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.068.png)
 
-**AWS Elastic BeanStalk**
+AWS Elastic BeanStalk
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.069.png)
