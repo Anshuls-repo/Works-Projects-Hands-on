@@ -8,59 +8,57 @@
 
 ## Part:1
 
-Search for ‘Jenkins’ in AWS Marketplace products. Choose an AMi according to the OS you want. I chose one with Ubuntu in it.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.002.jpeg)
+Search for ‘Jenkins’ in AWS Marketplace products. Choose an AMi according to the OS you want. I chose one with Ubuntu in it.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.002.jpeg)
 
-Now quickly choose the required settings and instance configuration that you need and launch it. We chose t2.micro as it is free.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.003.jpeg)
+Now quickly choose the required settings and instance configuration that you need and launch it. We chose t2.micro as it is free.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.003.jpeg)
 
-Our EC2 instance has started to spin up. Rename it to avoid confusion.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.004.jpeg)
+Our EC2 instance has started to spin up. Rename it to avoid confusion.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.004.jpeg)
 
-SSH into this instance. To get password to login into jenkins: cat /var/lib/jenkins/secrets/initialAdminPassword![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.005.jpeg)
+SSH into this instance. To get password to login into jenkins: cat /var/lib/jenkins/secrets/initialAdminPassword
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.005.jpeg)
 
-Copy the public ip of instance.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.006.jpeg)
+Copy the public ip of instance.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.006.jpeg)
 
-And paste it on the browser following the 8080 port. That is ip\_address:8080. Enter the password here that you got after using the cat command in the above steps.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.007.jpeg) Later you will be prompted to install the plugins page. We will install default plugins for now and install the plugins we need later.
+And paste it on the browser following the 8080 port. That is ip\_address:8080. 
+Enter the password here that you got after using the cat command in the above steps.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.007.jpeg) 
 
-After the plugins are installed. Enter username password and other details.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.008.jpeg)
+Later you will be prompted to install the plugins page. We will install default plugins for now and install the plugins we need later.
+After the plugins are installed. Enter username password and other details.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.008.jpeg)
 
-Now you will be prompted to this  page.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.009.jpeg)
+Now you will be prompted to this page.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.009.jpeg)
 
 To install the plugin that we need.
-
-Click on Manage Jenkins>>Manage Plugins>> Available and then search for ‘Cloudformation’.Install this plugin.![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.010.jpeg)
+Click on Manage Jenkins>>Manage Plugins>> Available and then search for ‘Cloudformation’.Install this plugin.
+![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.010.jpeg)
 
 Now let us run cloud formation from github into jenkins.
+For this we have created a file in json format. Let us look into it first.
 
-For this we have created a file in json format. Let us look into it first. {
-
-"AWSTemplateFormatVersion": "2010-09-09",
-
-"Resources": {
-
-"S3Bucket": {
-
-"Type": "AWS::S3::Bucket"
-
-}
-
+```
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket"
+  }
 },
-
-"Outputs": {
-
-"BucketName": {
-
-"Value": {
-
-"Ref": "S3Bucket"
-
-},
-
-"Description": "Name of the sample Amazon S3 bucket."
-
+  "Outputs": {
+    "BucketName": {
+      "Value": {
+        "Ref": "S3Bucket"
+      },
+      "Description": "Name of the sample Amazon S3 bucket."
+    }
+  }
 }
-
-}
-
-}
+```
 
 Here's what the different parts of the template do:
 
