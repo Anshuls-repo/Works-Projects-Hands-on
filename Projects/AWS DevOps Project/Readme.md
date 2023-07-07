@@ -207,98 +207,98 @@ sudo service codedeploy-agent start
 
 So code deploy agents are up and running in both qa and prod instances after using above commands.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.017.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-015.png)
 
 Let us create a Deployment Group
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.018.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-016.png)
 
 Give it a name and attach role to it with proper permissions.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.019.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-017.png)
 
 Add tags of QA and Prod instance and create deployment group.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.020.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-018.png)
 
 We need to create CodeBuild aswell. Also the build is stored in s3. Let us create s3 bucket for this.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.021.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-019.png)
 
 Block all public access. Create a bucket.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.022.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-020.png)
 
 Now let us create a build project. First just give name to build project.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.023.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-021.png)
 
 Select your source repo and branch.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.024.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-022.png)
 
 Select environment
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.025.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-023.png)
 
 We will add artifacts later. Create build.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.026.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-024.png)
 
 Click on start build
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.027.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-025.png)
 
 Build is successful
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.028.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-026.png)
 
 Let us add s3 as artifact.
 
 Goto build and click on edit and add artifacts.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.029.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-027.png)
 
 Choose the bucket in which you want artifact to be in.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.030.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-028.png)
 
 Let us package it in .zip
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.031.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-029.png)
 
 Now start build after setting up artifacts.
 You can see that after successful build .zip file will reflect in s3.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.032.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-030.png)
 
 Now we have created CodeDEPLOY Application before. Create 2 codedeploy groups in it. Here we choose QA tags
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.033.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-031.png)
 
 Select never because we already installed agents before.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.034.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-032.png)
 
 Similarly, while creating deployment group for prod select prod instance tags.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.035.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-033.png)
 
 Let us create deployment for QA group first.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.036.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-034.png)
 
 In Deployment settings add artifacts s3 url and file type.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.037.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-035.png)
 
 Create Deployment
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.038.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-036.png)
 
 Deployment succeeded.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.039.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-037.png)
 
 Similarly create deployment for prod deployment group.
 
