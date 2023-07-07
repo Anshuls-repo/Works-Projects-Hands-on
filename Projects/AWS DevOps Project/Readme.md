@@ -394,7 +394,10 @@ Click on save.
 
 ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-060.png)
 
-Let us make change in CodeCommit. Add extra line to it. Before change:
+## Output 
+
+Add extra line to it. 
+Before change:
 
 ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-061.png)
 
