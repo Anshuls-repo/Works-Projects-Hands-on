@@ -18,25 +18,25 @@ Our EC2 instance has started to spin up. Rename it to avoid confusion.
 ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-004.png)
 
 SSH into this instance. To get password to login into jenkins: cat /var/lib/jenkins/secrets/initialAdminPassword
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.005.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-006.png)
 
 Copy the public ip of instance.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.006.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-007.png)
 
 And paste it on the browser following the 8080 port. That is ip\_address:8080. 
 Enter the password here that you got after using the cat command in the above steps.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.007.jpeg) 
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-008.png) 
 
 Later you will be prompted to install the plugins page. We will install default plugins for now and install the plugins we need later.
 After the plugins are installed. Enter username password and other details.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.008.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-010.png)
 
 Now you will be prompted to this page.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.009.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-011.png)
 
 To install the plugin that we need.
 Click on Manage Jenkins>>Manage Plugins>> Available and then search for ‘Cloudformation’.Install this plugin.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.010.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-013.png)
 
 Now let us run cloud formation from github into jenkins.
 For this we have created a file in json format. Let us look into it first.
@@ -72,33 +72,33 @@ Here's what the different parts of the template do:
 
 Let us get back to jenkins and create a freestyle project using this json file.
 Click on create job>>Freestyle Project and name your project.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.011.jpeg)
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.012.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-016.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-017.png)
 Now, it has to get code from github repo.
 Choose ‘Git’ in ‘Source Code Management’ for this to happen. 
 Copy paste this repo URL.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.013.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-018.png)
 
 In credentials add your github credentials.
- ![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.014.jpeg)
+ ![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-020.png)
 
 Now in ‘Build Environment’ choose ‘Create AWS Cloud Formation Stack’. **This option is up there because of the plugin that we installed before**.
 Fill the details accordingly.
 In ‘Cloud Formation recipe file/S3 URL. (.json)’ section give your json file name from github repo.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.015.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-021.png)
 
 Here you need to enter Access Key and Secret Key.
 The need for these keys for Jenkins is to call Cloudformation API. Let us head towards AWS to get Access Key and Secret Key.
 Goto IAM>>Users>>Add user from AWS Console.
 Name the user.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.016.jpeg)![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.017.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-023.png)
 Now, attach a policy to the user.
 You need to attach ‘CloudFormation FullAccess’ and ‘S3 bucket FullAccess’ policies to it.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.018.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-024.png)
 Check the policies attached and Create User.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.019.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-025.png)
 Open the user that you just created and create an Access Key.
-![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.020.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/Run%20Infra%20as%20Code%20with%20Jenkins/Images/image-027.png)
 Copy the Access Key and Secret Key.
 ![](Aspose.Words.8c6231e7-1686-4e35-99fa-a45aa915df3f.021.jpeg)
 And paste the Access Key and Secret Access Key here.
