@@ -126,155 +126,144 @@ Here's a brief explanation of the contents:**
 
 **In summary, this appspec.yml file defines the deployment process for an application on a Linux operating system. It includes the files from the root directory of the application and deploys them to the /var/www/html directory. It also specifies the execution of two scripts, install\_nginx.sh and start\_nginx.sh, after the installation and application start stages, respectively. The scripts are executed as the root user with a timeout of 300 seconds for each.**
 
-**Now we need HTML website in codecommit.**
+Now we need HTML website in codecommit.
+For this first create a codecommit repo in aws through console. Search for codecommit service in aws console.
 
-**For this first create a codecommit repo in aws through console. Search for codecommit service in aws console.**
-
-**Click on create repository.**
+Click on create repository.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.003.jpeg)
 
-**JUst name it and click on create repo.**
+JUst name it and click on create repo.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.004.jpeg)
 
-**Now we want to clone github repo to codecommitt.**
-
-**For this, create a IAM user. Goto: IAM>User>Create User.**
+Now we want to clone github repo to codecommitt.
+For this, create a IAM user. Goto: IAM>User>Create User.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.005.jpeg)
 
-**Just give a name to the user and give codecommit full access to it.**
+Just give a name to the user and give codecommit full access to it.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.006.jpeg)
 
-**Now generate an IAM access key by going into: IAM>Users>User we created>security credentials>create access key**
+Now generate an IAM access key by going into: IAM>Users>User we created>security credentials>create access key
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.007.jpeg)
 
-**GIT credentials required are created.**
+GIT credentials required are created.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.008.jpeg)
 
-**Now in your local machine install git and clone the github repo to it. For this use commands:**
-
-**Sudo apt-get install git**
-
-**Git clone <github repo clone link>**
+Now in your local machine install git and clone the github repo to it. For this use commands:
+Sudo apt-get install git
+Git clone <github repo clone link>
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.009.jpeg)
 
-**Copy all the contents of this repo into another folder.**
-
-**Use command:**
-
-**cp -r /home/ubuntu/github cloned folder name/\*\* /home/ubuntu/<new folder name>**
+Copy all the contents of this repo into another folder.
+Use command:
+cp -r /home/ubuntu/github cloned folder name/\*\* /home/ubuntu/<new folder name>
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.010.jpeg)
 
-**Now push this new folder to codecommit repo. USe this command in that folder. Git init**
-
-**Git add .**
-
-**Git commit -m “message.”**
+Now push this new folder to codecommit repo. USe this command in that folder. Git init
+Git add .
+Git commit -m “message.”
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.011.jpeg)
 
-**Now let us push it to code commit.**
-
-**Use command: git remote add origin <codecommit repo link> Git push -u origin master**
+Now let us push it to code commit.
+Use command: git remote add origin <codecommit repo link> Git push -u origin master
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.012.jpeg)
 
-**In credentials part, we will enter the credentials we created using IAM user before.**
+In credentials part, we will enter the credentials we created using IAM user before.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.013.jpeg)
 
-**Changes has been reflected in our codecommit repo.**
+Changes has been reflected in our codecommit repo.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.014.jpeg)
 
-**Now let us create 2 deployments, QA and Prod in EC2 deployment groups. Goto AWS CodeDeploy>Create Application from AWS console.**
+Now let us create 2 deployments, QA and Prod in EC2 deployment groups. 
+Goto AWS CodeDeploy>Create Application from AWS console.
+Give name to ur app and choose ec2/on prem as your compute platform.
 
-**Give name to ur app and choose ec2/on prem as your compute platform.**
+![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.015.jpeg)
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.015.jpeg)**Now create 2 instances for QA and Prod. Also we will attach role to it so that it can access codecommit.**
+Now create 2 instances for QA and Prod. Also we will attach role to it so that it can access codecommit.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.016.png)
 
-**Now we need to install CodeDeploy Agent into them. Use these commands:**
+Now we need to install CodeDeploy Agent into them. Use these commands:
 
-**sudo apt-get install ruby -y**
+sudo apt-get install ruby -y
+sudo apt-get install wget -y
+cd /home/ubuntu # Change the directory to your desired location
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install 
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent start
 
-**sudo apt-get install wget -y**
-
-**cd /home/ubuntu # Change the directory to your desired location**
-
-**wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install chmod +x ./install**
-
-**sudo ./install auto**
-
-**sudo service codedeploy-agent start**
-
-**So code deploy agents are up and running in both qa and prod instances after using above commands.**
+So code deploy agents are up and running in both qa and prod instances after using above commands.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.017.jpeg)
 
-**Let us create a Deployment Group**
+Let us create a Deployment Group
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.018.jpeg)
 
-**Give it a name and attach role to it with proper permissions.**
+Give it a name and attach role to it with proper permissions.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.019.jpeg)
 
-**Add tags of QA and Prod instance and create deployment group.**
+Add tags of QA and Prod instance and create deployment group.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.020.jpeg)
 
-**We need to create CodeBuild aswell. Also the build is stored in s3. Let us create s3 bucket for this.**
+We need to create CodeBuild aswell. Also the build is stored in s3. Let us create s3 bucket for this.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.021.jpeg)
 
-**Block all public access. Create a bucket.**
+Block all public access. Create a bucket.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.022.jpeg)
 
-**Now let us create a build project. First just give name to build project.**
+Now let us create a build project. First just give name to build project.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.023.jpeg)
 
-**Select your source repo and branch.**
+Select your source repo and branch.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.024.jpeg)
 
-**Select environment**
+Select environment
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.025.jpeg)
 
-**We will add artifacts later. Create build.**
+We will add artifacts later. Create build.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.026.jpeg)
 
-**Click on start build**
+Click on start build
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.027.jpeg)
 
-**Build is successful**
+Build is successful
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.028.jpeg)
 
-**Let us add s3 as artifact.**
+Let us add s3 as artifact.
 
-**Goto build and click on edit and add artifacts.**
+Goto build and click on edit and add artifacts.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.029.jpeg)
 
-**Choose the bucket in which you want artifact to be in.**
+Choose the bucket in which you want artifact to be in.
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.030.jpeg)
 
-**Let us package it in .zip**
+Let us package it in .zip
 
 ![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.031.jpeg)
 
