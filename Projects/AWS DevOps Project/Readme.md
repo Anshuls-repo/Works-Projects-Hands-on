@@ -71,28 +71,21 @@ The "h1" element represents a heading with the text "AWS DevOps". It has a large
 - In summary, the HTML code creates a webpage with a heading and a paragraph, styled using CSS to have a specific appearance.
 
 **buildspec.yml:**
+
 The given buildspec.yml file is used in the AWS CodeBuild service to define the build specifications and actions for a project. Here's a brief explanation of the contents:
 
-**version: 0.2**: Specifies the version of the buildspec file format.
-**phases**: Represents different phases of the build process, such as installation, build, and post-build actions.
-**install**: Contains commands to be executed during the installation phase.
-**echo Installing NGINX**: Prints a message indicating that NGINX installation is starting. sudo apt-get update: Updates the package lists on the system.
-
-**sudo apt-get install nginx -y**: Installs NGINX by using the package manager with automatic confirmation (-y).
-
-**build**: Contains commands to be executed during the build phase.
-
-**echo Build started on date``**: Prints a message with the current date and time.
-
-**cp index.html /var/www/html/**: Copies the index.html file to the /var/www/html/ directory. post\_build: Contains commands to be executed after the build phase.**
-
-**echo Configuring NGINX**: Prints a message indicating that NGINX configuration is being performed.
-
-**artifacts**: Specifies the artifacts to be generated and uploaded after the build phase.
-
-**files**: Defines the files and directories to be included as artifacts.
-
-**'\*\*/\*'**: Includes all files and directories recursively, capturing everything in the build environment as artifacts.
+- version: 0.2: Specifies the version of the buildspec file format.
+phases: Represents different phases of the build process, such as installation, build, and post-build actions.
+- install: Contains commands to be executed during the installation phase.
+echo Installing NGINX: Prints a message indicating that NGINX installation is starting. sudo apt-get update: Updates the package lists on the system.
+- sudo apt-get install nginx -y: Installs NGINX by using the package manager with automatic confirmation (-y).
+- build: Contains commands to be executed during the build phase.
+- echo Build started on date``: Prints a message with the current date and time.
+- cp index.html /var/www/html/: Copies the index.html file to the /var/www/html/ directory. post\_build: Contains commands to be executed after the build phase.
+- echo Configuring NGINX: Prints a message indicating that NGINX configuration is being performed.
+- artifacts: Specifies the artifacts to be generated and uploaded after the build phase.
+- files: Defines the files and directories to be included as artifacts.
+- '\*\*/\*': Includes all files and directories recursively, capturing everything in the build environment as artifacts.
 
 **In summary, this buildspec.yml file sets up an AWS CodeBuild project to install NGINX, copy an index.html file to the appropriate location, and generate artifacts that include all files and directories in the build environment.**
 
