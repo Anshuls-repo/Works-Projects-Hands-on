@@ -354,71 +354,71 @@ Give name to your application. Select php as platform.
 
 Click on next.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.053.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-051.png)
 
 Give necessary permission through role and select instance details.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.054.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-052.png)
 
 Choose VPC and AZ in which you want the instance.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.055.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-053.png)
 
 Select storage type and other specs needed according to you.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.056.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-054.png)
 
 Recheck all settings and submit.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.057.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-055.png)
 
 Environment is fully launched.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.058.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-056.png)
 
 Now Goto pipeline.
 
 After codedeploy stage click on add stage. Give it a name.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.059.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-057.png)
 
 Add prod codedeploy.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.060.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-058.png)
 
 Now add AWS BeanStalk ENV Choose appropriate beanstalk env.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.061.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-059.png)
 
 Click on save.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.062.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-060.png)
 
 Let us make change in CodeCommit. Add extra line to it. Before change:
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.063.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-061.png)
 
 After change:
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.064.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-062.png)
 
 Commit it and lets see if it gets reflected in QA, PROD and Beanstalk ENV instance through pipeline.
 Commit done.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.065.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-063.png)
 
 Pipeline is successful.
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.066.jpeg)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-064.png)
 
 Let us check all ip’s of all three instances. QA
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.067.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-065.png)
 
 PROD
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.068.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-066.png)
 
 AWS Elastic BeanStalk
 
-![](Aspose.Words.14e0801c-2967-4000-8d18-fd40bec26cb3.069.png)
+![](https://github.com/Anshuls-repo/Works-Projects-Hands-on/blob/main/Projects/AWS%20DevOps%20Project/Images/image-067.png)
