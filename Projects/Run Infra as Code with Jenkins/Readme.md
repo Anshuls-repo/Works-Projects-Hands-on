@@ -56,8 +56,8 @@ For this we have created a file in json format. Let us look into it first.
   "Resources": {
     "S3Bucket": {
       "Type": "AWS::S3::Bucket"
-  }
-},
+    }
+  },
   "Outputs": {
     "BucketName": {
       "Value": {
@@ -67,6 +67,7 @@ For this we have created a file in json format. Let us look into it first.
     }
   }
 }
+
 ```
 
 Here's what the different parts of the template do:
@@ -150,24 +151,16 @@ Then install awscli using: sudo apt-get install awscli
 **We will be using following jenkins file to pass on command on CLI:**
 ```
 pipeline {
-
-agent any
-
-stages {
-
-stage('Submit Stack') {
-
-steps {
-
-sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://infraasacodewithjenkins.json --region 'us-east-1'"
-
+  agent any
+  stages {
+    stage('Submit Stack') {
+      steps {
+        sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://infraasacodewithjenkins.json --region 'us-east-1'"
+      }
+    }
+  }
 }
 
-}
-
-}
-
-}
 ```
 
 This is a Jenkins pipeline script that uses the AWS CLI to create an AWS CloudFormation stack from a template file. The pipeline has one stage called "Submit Stack" that consists of a single step.
